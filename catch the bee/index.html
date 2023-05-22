@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Catch the bee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="menu">
+        <h1>Level</h1><br>
+        <h3>easy</h3><input type="radio" name="1" checked class="radio" value="easy" id="easy" />
+        <h3>medium</h3><input type="radio" name="1" class="radio" value="medium" id="medium" />
+        <h3>hard</h3><input type="radio" name="1" class="radio" value="hard" id="hard" /><br><hr>
+        <button onclick="Start()" id="start">START</button><br>
+        <button onclick="Stop()" id="stop">STOP</button><br>
+        <div id="result"></div>
+        <input type="text" readonly id="Score">
+    </div>
+    <div id="container">
+        <img onclick="clic()" id="B" src="bee.gif" alt="bee" />
+    </div>
+    <script>
+        var medium=document.getElementById("medium")
+        var hard=document.getElementById("hard")
+        document.getElementById("B").style.display = "none"
+        var back = document.getElementById("container").style
+        var s
+        var score = 0
+        function Start(){
+        document.getElementById("Score").value = 0
+            if(hard.checked){
+                document.getElementById("B").style.display = "block"
+                a = setInterval(count, 400);
+            }
+            else
+            if(medium.checked){
+                document.getElementById("B").style.display = "block"
+                a = setInterval(count, 600);
+            }
+            else{
+                document.getElementById("B").style.display = "block"
+                a = setInterval(count, 1000);
+            }
+            document.getElementById("start").setAttribute("disabled","")
+            document.getElementById("h1").remove()
+            document.getElementById("stop").removeAttribute("disabled","")
+
+        }
+        function clic() {
+            if(hard.checked){
+                score+=4
+            }
+            else
+            if(medium.checked){
+                score+=2
+            }
+            else{
+                score+=1
+            }
+            document.getElementById("Score").value = score;
+        }
+        function count() {
+            y = Math.random() * 1000;
+            x = Math.random() * 500;
+            x = Math.trunc(x);
+            y = Math.trunc(y);
+            document.getElementById("B").style.top = +x + "px";
+            document.getElementById("B").style.right = +y + "px";
+            sx = x / 3;
+            sy = y / 3;
+            back.backgroundPositionX = +sx + "px";
+            back.backgroundPositionY = +sy + "px";
+            if (s > x) {
+                document.getElementById("B").style.transform = "rotateY(0deg)";
+            } else if (s < x) {
+                document.getElementById("B").style.transform = "rotateY(180deg)";
+            }
+            s = x;
+        }
+        function Stop() {
+            clearInterval(a)
+            document.getElementById("start").removeAttribute("disabled","")
+            document.getElementById("B").style.display = "none"
+            var h1=document.createElement("h1")
+            h1.setAttribute("id","h1")
+            var text = document.createTextNode("Votre score est")
+            h1.appendChild(text)
+            document.getElementById("result").appendChild(h1)
+            document.getElementById("stop").setAttribute("disabled","")
+            score=0
+
+
+        }
+    </script>
+</body>
+
+</html>

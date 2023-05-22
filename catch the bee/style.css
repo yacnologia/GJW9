@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    position: relative;
+}
+
+#B {
+    user-select: none;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+#container {
+    width: 80vw;
+    height: 100vh;
+    background-image: url(backG.png);
+    background-size: 1400px;
+    overflow: hidden;
+    position: relative;
+    left: 20vw;
+}
+
+#menu {
+    text-align: center;
+    border-left: 2px solid;
+    position: absolute;
+    background-color: rgb(101, 150, 206);
+    width: 20vw;
+    height: 100vh;
+}
+.radio{
+    margin: auto;
+    display: block;
+    background-color: rgb(179, 219, 244);
+    height: 60px;
+    width: 60px;
+    border:none;
+    border-radius: 50px;
+}
+h1,h3{
+    filter:drop-shadow(4px 4px 1px rgb(13, 98, 147));
+    color: white;
+    font-family: Oussama,Tahoma;
+}
+button{
+    border: none;
+    border-radius: 12px;
+    color: rgb(13, 98, 147);
+    font-family: Oussama,Tahoma;
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin: auto;
+}
+@font-face {
+    font-family: "Oussama";
+    src: url(Cartoon.woff2);
+}
+#Score{
+    padding-left: 40px;
+    filter:drop-shadow(4px 4px 1px rgb(13, 98, 147));
+    user-select: none;
+    outline: none;
+    font-family: Oussama,Tahoma;
+    color: white;
+    font-size: 70px;
+    font-weight: bolder;
+    border: none;
+    background-color: transparent;
+    width: 120px;
+}
+hr{
+    border-color: white;
+    margin: auto;
+    display: block;
+    width: 160px;
+    margin-bottom: 20px;
+}
+#stop:active{
+    color: white;
+    background-color: rgb(207, 55, 55);
+}
